@@ -6,11 +6,11 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
-WORKDIR /docker-test
+WORKDIR /src
 COPY ["docker-test/docker-test.csproj", "docker-test/"]
 RUN dotnet restore "docker-test/docker-test.csproj"
 COPY . .
-WORKDIR "/docker-test"
+WORKDIR "/src/docker-test"
 RUN dotnet build "docker-test.csproj" -c Release -o /app/build
 
 FROM build AS publish
