@@ -29,8 +29,8 @@ jobs:
         username: ${{ secrets.CR_KEPLERDEV_USERNAME }}
         password: ${{ secrets.CR_KEPLERDEV_PASSWORD }}
     
-#    - name: Build the tagged Docker image
-#      run: docker build . --file Dockerfile --tag keplerdev.azurecr.io/${{ secrets.IMAGENAME }}:latest
+    - name: Build the tagged Docker image
+      run: docker build . --file Dockerfile --tag keplerdev.azurecr.io/${{ secrets.IMAGENAME }}:latest
         
-#    - name: Push the tagged Docker image
-#      run: docker push keplerdev.azurecr.io/${{ secrets.IMAGENAME }}:latest
+    - name: Push the tagged Docker image
+      run: docker push keplerdev.azurecr.io/${{ secrets.IMAGENAME }}:latest
