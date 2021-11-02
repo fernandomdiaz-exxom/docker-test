@@ -27,6 +27,10 @@ namespace docker_test
             }
 
             app.UseRouting();
+            
+            app.UseStaticFiles();
+
+            app.UseHttpsRedirection();
 
             app.UseEndpoints(endpoints =>
             {
