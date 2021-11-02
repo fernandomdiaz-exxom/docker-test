@@ -20,7 +20,11 @@ namespace docker_test
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>().UseUrls("http://*:8080", "https://*:8081"); // define ports , replace by default
+                    //webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureKestrel(options => options.AddServerHeader = false);
+
                 });
     }
 }
+  
