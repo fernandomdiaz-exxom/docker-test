@@ -10,11 +10,7 @@ RUN dotnet restore "docker-test/docker-test.csproj"
 COPY . .
 WORKDIR "/src/docker-test"
 RUN dotnet build "docker-test.csproj" -c Release -o /app/build
-
-FROM build AS publish
 RUN dotnet publish "docker-test.csproj" -c Release -o /app/publish
-
-FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 EXPOSE 8080
