@@ -30,8 +30,6 @@ namespace docker_test
             
             app.UseStaticFiles();
 
-            app.UseHttpsRedirection();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
