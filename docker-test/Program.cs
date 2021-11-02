@@ -21,6 +21,7 @@ namespace docker_test
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureKestrel(options => options.AddServerHeader = false);
                 });
     }
 }
